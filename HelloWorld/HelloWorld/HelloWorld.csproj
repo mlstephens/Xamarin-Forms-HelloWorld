@@ -14,6 +14,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="GridExercise.xaml.cs">
+      <DependentUpon>GridExercise.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="StackExcercise.xaml.cs">
+      <DependentUpon>StackExcercise.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AbsoluteValues.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="GridExercise.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="StackExcercise.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="GreetingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
