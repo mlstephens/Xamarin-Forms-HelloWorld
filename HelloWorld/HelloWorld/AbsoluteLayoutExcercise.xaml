@@ -3,16 +3,20 @@
     Padding="0,20,0,0"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HelloWorld.AbsoluteValues" >
+    x:Class="HelloWorld.AbsoluteLayoutExcercise" >
     <AbsoluteLayout>
-        <BoxView Color="Aqua"
+        <BoxView Color="#f7f7f7"
                  AbsoluteLayout.LayoutBounds="0,0,1,1" 
                  AbsoluteLayout.LayoutFlags="All" />
-        <BoxView Color="White"
+
+        <Label TextColor="#33353a" FontSize="45" FontAttributes="Bold" Text="Price is $11.95" />
+
+
+        <!--<BoxView Color="White"
                  AbsoluteLayout.LayoutBounds="0.5,0.1,100,100"
                  AbsoluteLayout.LayoutFlags="PositionProportional" />
         <Button Text="Get Started" TextColor="White" BackgroundColor="Silver"
                 AbsoluteLayout.LayoutBounds="0,1,1,50"
-                AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" />
+                AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" />-->
     </AbsoluteLayout>  
 </ContentPage>

@@ -5,8 +5,7 @@
              x:Class="HelloWorld.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="welcome to xamarin.forms!" 
+        <Label Text="Michael - Test Emulator Form..." 
            HorizontalOptions="center"
            VerticalOptions="centerandexpand" />
     </StackLayout>

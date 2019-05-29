@@ -2,16 +2,12 @@
 
 namespace HelloWorld
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
 		public App()
 		{
 			InitializeComponent();
-
-            //MainPage = new QuotesPage();
-            //MainPage = new StackExcercise();
-            //MainPage = new GridExercise();
-            MainPage = new AbsoluteValues();
+            MainPage = new MainPage();
 		}
 
 		protected override void OnStart()
