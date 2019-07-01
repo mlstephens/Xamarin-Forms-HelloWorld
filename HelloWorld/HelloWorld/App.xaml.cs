@@ -7,11 +7,7 @@ namespace HelloWorld
 		public App()
 		{
 			InitializeComponent();
-
-            //MainPage = new QuotesPage();
-            //MainPage = new StackExcercise();
-            //MainPage = new GridExercise();
-            MainPage = new AbsoluteValues();
+            MainPage = new ImagePageExercise();
 		}
 
 		protected override void OnStart()
