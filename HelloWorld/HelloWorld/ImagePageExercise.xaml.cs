@@ -12,15 +12,42 @@ namespace HelloWorld
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ImagePageExercise : ContentPage
 	{
-		public ImagePageExercise ()
+        private int _currentImageId = 0;
+
+        public ImagePageExercise ()
 		{
 			InitializeComponent ();
 
-            //create image source in behind code
-            var imageSource = new UriImageSource { Uri = new Uri("http://lorempixel.com/1920/1080/city/1") };
-            imageSource.CachingEnabled = false;
-            image.Aspect = Aspect.AspectFill;
-            image.Source = imageSource;
+            _currentImageId = 1;
+
+            LoadImage();
+        }
+
+        void LoadImage()
+        {
+            image.Source = new UriImageSource
+            {
+                Uri = new Uri(String.Format("http://lorempixel.com/1920/1080/city/{0}", _currentImageId)),
+                CachingEnabled = false
+            };
+        }
+
+        void Previous_Clicked(object sender, System.EventArgs e)
+        {
+            _currentImageId--;
+            if (_currentImageId == 0)
+                _currentImageId = 10;
+
+            LoadImage();
+        }
+
+        void Next_Clicked(object sender, System.EventArgs e)
+        {
+            _currentImageId++;
+            if (_currentImageId == 11)
+                _currentImageId = 1;
+
+            LoadImage();
         }
     }
 }
