@@ -2,7 +2,7 @@
 
 namespace HelloWorld
 {
-	public partial class App : Application
+	    public partial class App : Application
 	{
 		public App()
 		{

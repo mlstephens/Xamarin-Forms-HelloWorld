@@ -9,7 +9,7 @@
                  AbsoluteLayout.LayoutBounds="0,0,1,1" 
                  AbsoluteLayout.LayoutFlags="All" />
 
-        <Label TextColor="#33353a" FontSize="45" FontAttributes="Bold" Text="$11.95" />
+        <Label TextColor="#33353a" FontSize="45" FontAttributes="Bold" Text="Price is $11.95" />
 
 
         <!--<BoxView Color="White"
