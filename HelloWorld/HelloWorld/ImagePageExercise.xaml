@@ -5,7 +5,7 @@
              BackgroundColor="Black">
     <ContentPage.Content>
 
-        <!--Using a grid-->
+        <!--Using the grid-->
         <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
 
             <Grid.RowDefinitions>
