@@ -17,11 +17,26 @@ namespace HelloWorld
 		{
 			InitializeComponent ();
 
-            listView.ItemsSource = new List<Contact>
+            //simple lists
+            //listView.ItemsSource = new List<Contact>
+            //{
+            //    new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+            //    new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+            //};
+
+            //grouping
+            listView.ItemsSource = new List<ContactGroup>
             {
-                new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
-                new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+                new ContactGroup("A","A"){
+                    new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+                },
+                
+                new ContactGroup("M","M")
+                {
+                    new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+                }
+                
             };
-		}
+        }
 	}
 }
