@@ -7,7 +7,7 @@ namespace HelloWorld
 		public App()
 		{
 			InitializeComponent();
-            MainPage = new ImagePageExercise();
+            MainPage = new ListPage();
 		}
 
 		protected override void OnStart()
