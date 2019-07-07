@@ -5,6 +5,7 @@
              BackgroundColor="Black">
     <ContentPage.Content>
 
+        <!--Using a grid-->
         <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
 
             <Grid.RowDefinitions>
@@ -44,6 +45,7 @@
 
         </Grid>
 
+        <!--Using absolute layout-->
         <!--<AbsoluteLayout>
             <Image x:Name="image"
 			AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" />
