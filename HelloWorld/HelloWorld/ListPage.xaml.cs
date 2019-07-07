@@ -19,8 +19,8 @@ namespace HelloWorld
 
             listView.ItemsSource = new List<Contact>
             {
-                new Contact{ Name="Mosh", ImageUrl="http://lorempixel.com/100/100/people/1" },
-                new Contact{ Name="John", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/2" }
+                new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+                new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
             };
 		}
 	}
