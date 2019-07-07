@@ -38,10 +38,20 @@
                         Detail="{Binding Status}" DetailColor="Gray" />-->
                     
                     <!--Selected Item-->
+                    <!--<TextCell 
+                        Text="{Binding Name}" TextColor="Black"
+                        Detail="{Binding Status}" DetailColor="Gray" />-->
+
+                    <!--Context Item-->
                     <TextCell 
                         Text="{Binding Name}" TextColor="Black"
-                        Detail="{Binding Status}" DetailColor="Gray" />
+                        Detail="{Binding Status}" DetailColor="Gray">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Call" Clicked="Call_Clicked" CommandParameter="{Binding .}" />
+                            <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="True"  />
+                        </TextCell.ContextActions>
 
+                    </TextCell>
 
                 </DataTemplate>
             </ListView.ItemTemplate>    

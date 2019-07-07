@@ -1,6 +1,7 @@
 ﻿using HelloWorld.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +14,20 @@ namespace HelloWorld
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListPage : ContentPage
 	{
-		public ListPage ()
+        private ObservableCollection<Contact> _contacts;
+
+        public ListPage ()
 		{
 			InitializeComponent ();
 
             //simple lists
-            listView.ItemsSource = new List<Contact>
+            _contacts = new ObservableCollection<Contact>
             {
                 new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
                 new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
             };
+
+            listView.ItemsSource = _contacts;
 
             //grouping
             //listView.ItemsSource = new List<ContactGroup>
@@ -48,6 +53,18 @@ namespace HelloWorld
         {
             var contact = e.SelectedItem as Contact;
             DisplayAlert("Selected:", contact.Name, "OK");
+        }
+
+        private void Call_Clicked(object sender, EventArgs e)
+        {
+            var contact =  (sender as MenuItem).CommandParameter as Contact;
+            DisplayAlert("Call:", contact.Name, "OK");
+        }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+            var contact = (sender as MenuItem).CommandParameter as Contact;
+            _contacts.Remove(contact);
         }
     }
 }
