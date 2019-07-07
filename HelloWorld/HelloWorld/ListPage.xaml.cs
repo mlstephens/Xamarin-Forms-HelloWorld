@@ -11,23 +11,22 @@ using Xamarin.Forms.Xaml;
 
 namespace HelloWorld
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ListPage : ContentPage
+    {
         private ObservableCollection<Contact> _contacts;
 
-        public ListPage ()
-		{
-			InitializeComponent ();
+        public ListPage()
+        {
+            InitializeComponent();
 
             //simple lists
-            _contacts = new ObservableCollection<Contact>
-            {
-                new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
-                new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
-            };
-
-            listView.ItemsSource = _contacts;
+            //_contacts = new ObservableCollection<Contact>
+            //{
+            //    new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+            //    new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+            //};
+            //listView.ItemsSource = _contacts;
 
             //grouping
             //listView.ItemsSource = new List<ContactGroup>
@@ -41,6 +40,8 @@ namespace HelloWorld
             //        new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
             //    }
             //};
+
+            listView.ItemsSource = GetContacts();
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -57,7 +58,7 @@ namespace HelloWorld
 
         private void Call_Clicked(object sender, EventArgs e)
         {
-            var contact =  (sender as MenuItem).CommandParameter as Contact;
+            var contact = (sender as MenuItem).CommandParameter as Contact;
             DisplayAlert("Call:", contact.Name, "OK");
         }
 
@@ -65,6 +66,23 @@ namespace HelloWorld
         {
             var contact = (sender as MenuItem).CommandParameter as Contact;
             _contacts.Remove(contact);
+        }
+
+        private void ListView_Refreshing(object sender, EventArgs e)
+        {
+            listView.ItemsSource = GetContacts();
+            listView.EndRefresh();
+        }
+
+        private ObservableCollection<Contact> GetContacts()
+        {
+            _contacts = new ObservableCollection<Contact>
+            {
+                new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+                new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+            };
+
+            return _contacts;
         }
     }
 }

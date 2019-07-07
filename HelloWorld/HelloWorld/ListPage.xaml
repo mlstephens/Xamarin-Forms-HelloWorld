@@ -4,15 +4,18 @@
              x:Class="HelloWorld.ListPage">
     <ContentPage.Content>
         <ListView x:Name="listView" 
-                  ItemTapped="ListView_ItemTapped"
-                  ItemSelected="ListView_ItemSelected">
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ListView_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     
                     <!--TextCell using standard templates-->
-                    <!--<TextCell 
+                    <!--Selected Item with TextCell-->
+                    <!--Grouping with TextCell-->
+                    <!--Refresh with pulldown-->
+                    <TextCell 
                         Text="{Binding Name}" TextColor="Black"
-                        Detail="{Binding Status}" DetailColor="Gray" />-->
+                        Detail="{Binding Status}" DetailColor="Gray" />
                     
                     <!--ImageCell using standard templates-->
                     <!--<ImageCell 
@@ -32,26 +35,15 @@
                         </StackLayout>   
                     </ViewCell>-->
 
-                    <!--Grouping with TextCell using standard templates-->
-                    <!--<TextCell 
-                        Text="{Binding Name}" TextColor="Black"
-                        Detail="{Binding Status}" DetailColor="Gray" />-->
-                    
-                    <!--Selected Item-->
-                    <!--<TextCell 
-                        Text="{Binding Name}" TextColor="Black"
-                        Detail="{Binding Status}" DetailColor="Gray" />-->
-
                     <!--Context Item-->
-                    <TextCell 
+                    <!--<TextCell 
                         Text="{Binding Name}" TextColor="Black"
                         Detail="{Binding Status}" DetailColor="Gray">
                         <TextCell.ContextActions>
                             <MenuItem Text="Call" Clicked="Call_Clicked" CommandParameter="{Binding .}" />
                             <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="True"  />
                         </TextCell.ContextActions>
-
-                    </TextCell>
+                    </TextCell>-->
 
                 </DataTemplate>
             </ListView.ItemTemplate>    
