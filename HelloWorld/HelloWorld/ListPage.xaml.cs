@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -44,6 +41,28 @@ namespace HelloWorld
             listView.ItemsSource = GetContacts("");
         }
 
+        private IEnumerable<Contact> GetContacts(string searchText)
+        {
+            var contacts = new List<Contact>
+                {
+                    new Contact{ Name="Anna", Status="Online", ImageUrl="http://lorempixel.com/100/100/people/1" },
+                    new Contact{ Name="Mosh", Status="OffLine - Text Anna please.", ImageUrl="http://lorempixel.com/100/100/people/3" },
+                    new Contact{ Name="John", Status="Online", ImageUrl="http://lorempixel.com/100/100/people/7" }
+                };
+
+            if (String.IsNullOrWhiteSpace(searchText))
+            {
+                return contacts;
+            };
+
+            return contacts.Where(c => c.Name.StartsWith(searchText)).ToList();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listView.ItemsSource = GetContacts(e.NewTextValue.ToUpper());
+        }
+
         //private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         //{
         //    var contact = e.Item as Contact;
@@ -73,26 +92,6 @@ namespace HelloWorld
         //}
 
 
-        private IEnumerable<Contact> GetContacts(string searchText)
-        {
-            var contacts = new List<Contact>
-                {
-                    new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
-                    new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" },
-                    new Contact{ Name="John", Status="Out of office.", ImageUrl="http://lorempixel.com/100/100/people/7" }
-                };
 
-            if (String.IsNullOrWhiteSpace(searchText))
-            {
-                return contacts;
-            };
-             
-            return contacts.Where(c => c.Name.StartsWith(searchText)).ToList();
-        }
-
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listView.ItemsSource = GetContacts(e.NewTextValue.ToUpper());
-        }
     }
 }
