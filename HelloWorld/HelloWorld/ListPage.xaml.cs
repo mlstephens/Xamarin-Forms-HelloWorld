@@ -41,48 +41,58 @@ namespace HelloWorld
             //    }
             //};
 
-            listView.ItemsSource = GetContacts();
+            listView.ItemsSource = GetContacts("");
         }
 
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var contact = e.Item as Contact;
-            DisplayAlert("Tapped:", contact.Name, "OK");
-        }
+        //private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    var contact = e.Item as Contact;
+        //    DisplayAlert("Tapped:", contact.Name, "OK");
+        //}
+        //private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    var contact = e.SelectedItem as Contact;
+        //    DisplayAlert("Selected:", contact.Name, "OK");
+        //}
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var contact = e.SelectedItem as Contact;
-            DisplayAlert("Selected:", contact.Name, "OK");
-        }
+        //private void Call_Clicked(object sender, EventArgs e)
+        //{
+        //    var contact = (sender as MenuItem).CommandParameter as Contact;
+        //    DisplayAlert("Call:", contact.Name, "OK");
+        //}
+        //private void Delete_Clicked(object sender, EventArgs e)
+        //{
+        //    var contact = (sender as MenuItem).CommandParameter as Contact;
+        //    _contacts.Remove(contact);
+        //}
 
-        private void Call_Clicked(object sender, EventArgs e)
-        {
-            var contact = (sender as MenuItem).CommandParameter as Contact;
-            DisplayAlert("Call:", contact.Name, "OK");
-        }
+        //private void ListView_Refreshing(object sender, EventArgs e)
+        //{
+        //    listView.ItemsSource = GetContacts();
+        //    listView.EndRefresh();
+        //}
 
-        private void Delete_Clicked(object sender, EventArgs e)
-        {
-            var contact = (sender as MenuItem).CommandParameter as Contact;
-            _contacts.Remove(contact);
-        }
 
-        private void ListView_Refreshing(object sender, EventArgs e)
+        private IEnumerable<Contact> GetContacts(string searchText)
         {
-            listView.ItemsSource = GetContacts();
-            listView.EndRefresh();
-        }
+            var contacts = new List<Contact>
+                {
+                    new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
+                    new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" },
+                    new Contact{ Name="John", Status="Out of office.", ImageUrl="http://lorempixel.com/100/100/people/7" }
+                };
 
-        private ObservableCollection<Contact> GetContacts()
-        {
-            _contacts = new ObservableCollection<Contact>
+            if (String.IsNullOrWhiteSpace(searchText))
             {
-                new Contact{ Name="Anna", ImageUrl="http://lorempixel.com/100/100/people/1" },
-                new Contact{ Name="Mosh", Status="Text me please.", ImageUrl="http://lorempixel.com/100/100/people/3" }
+                return contacts;
             };
+             
+            return contacts.Where(c => c.Name.StartsWith(searchText)).ToList();
+        }
 
-            return _contacts;
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listView.ItemsSource = GetContacts(e.NewTextValue.ToUpper());
         }
     }
 }
