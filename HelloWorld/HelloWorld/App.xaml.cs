@@ -7,7 +7,11 @@ namespace HelloWorld
 		public App()
 		{
 			InitializeComponent();
-            MainPage = new ListPage();
+            MainPage = new NavigationPage(new Navigation_WelcomePage())
+            {
+                BarBackgroundColor = Color.Gray,
+                BarTextColor =Color.White
+            };
 		}
 
 		protected override void OnStart()
