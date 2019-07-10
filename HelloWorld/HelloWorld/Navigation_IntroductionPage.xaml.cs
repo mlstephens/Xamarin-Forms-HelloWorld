@@ -19,7 +19,7 @@ namespace HelloWorld
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
 
         //disables android backbutton funtionality
