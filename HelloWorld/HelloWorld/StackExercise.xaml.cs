@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace HelloWorld
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StackExcercise : ContentPage
+    public partial class StackExercise : ContentPage
     {
-        public StackExcercise()
+        public StackExercise()
         {
             InitializeComponent();
         }

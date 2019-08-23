@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -31,13 +31,13 @@
     <Compile Update="ImagePage.xaml.cs">
       <DependentUpon>ImagePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="StackExcercise.xaml.cs">
+    <Compile Update="StackExercise.xaml.cs">
       <DependentUpon>StackExcercise.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="AbsoluteLayoutExcercise.xaml">
+    <EmbeddedResource Update="AbsoluteLayoutExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="GridExercise.xaml">
@@ -49,7 +49,7 @@
     <EmbeddedResource Update="ImagePageExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StackExcercise.xaml">
+    <EmbeddedResource Update="StackExercise.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="GreetingPage.xaml">

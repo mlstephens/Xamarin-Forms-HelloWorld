@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace HelloWorld
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AbsoluteLayoutExcercise : ContentPage
+	public partial class AbsoluteLayoutExercise : ContentPage
 	{
-		public AbsoluteLayoutExcercise ()
+		public AbsoluteLayoutExercise ()
 		{
 			InitializeComponent ();
 		}
